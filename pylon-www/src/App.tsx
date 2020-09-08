@@ -1,5 +1,10 @@
 import React, { useCallback, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { UseWalletProvider } from "use-wallet";
 
@@ -34,6 +39,13 @@ const App: React.FC = () => {
         <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
         <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return <Redirect to="/pylon" />;
+            }}
+          />
           <Route path="/pylon" exact>
             <Home />
           </Route>
