@@ -114,7 +114,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               // disabled={!poolActive}
               // text={poolActive ? 'Select' : undefined}
               text="Select"
-              to={`/farms/${farm.id}`}
+              to={`farms/${farm.id}`}
               // borderImage
             >
               {/* {!poolActive && <Countdown date={new Date(startTime * 1000)} renderer={renderer} />} */}
