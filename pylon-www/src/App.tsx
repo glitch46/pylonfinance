@@ -1,60 +1,56 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
-import { UseWalletProvider } from 'use-wallet'
+import React, { useCallback, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { UseWalletProvider } from "use-wallet";
 
-import MobileMenu from './components/MobileMenu'
-import TopBar from './components/TopBar'
+import MobileMenu from "./components/MobileMenu";
+import TopBar from "./components/TopBar";
 
-import ProposalsProvider from './contexts/Proposals'
-import FarmsProvider from './contexts/Farms'
-import ModalsProvider from './contexts/Modals'
-import PylonProvider from './contexts/PylonProvider'
-import TransactionProvider from './contexts/Transactions'
+import ProposalsProvider from "./contexts/Proposals";
+import FarmsProvider from "./contexts/Farms";
+import ModalsProvider from "./contexts/Modals";
+import PylonProvider from "./contexts/PylonProvider";
+import TransactionProvider from "./contexts/Transactions";
 
-import Farms from './views/Farms'
-import Vote from './views/Vote'
-import Home from './views/Home'
-import Statics from './views/Statics'
-import theme from './theme'
+import Farms from "./views/Farms";
+// import Vote from './views/Vote'
+import Home from "./views/Home";
+import Statics from "./views/Statics";
+import theme from "./theme";
 
 const App: React.FC = () => {
-  const [mobileMenu, setMobileMenu] = useState(false)
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   const handleDismissMobileMenu = useCallback(() => {
-    setMobileMenu(false)
-  }, [setMobileMenu])
+    setMobileMenu(false);
+  }, [setMobileMenu]);
 
   const handlePresentMobileMenu = useCallback(() => {
-    setMobileMenu(true)
-  }, [setMobileMenu])
+    setMobileMenu(true);
+  }, [setMobileMenu]);
   return (
     <Providers>
       <Router>
         <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
         <Switch>
-          <Route path="/" exact>
+          <Route path="/pylon" exact>
             <Home />
           </Route>
-          <Route path="/farms">
+          <Route path="/pylon/farms">
             <Farms />
           </Route>
           {/* <Route path="/vote">
             <Vote />
           </Route> */}
-          <Route path="/stats">
+          <Route path="/pylon/stats">
             <Statics />
           </Route>
         </Switch>
       </Router>
     </Providers>
-  )
-}
+  );
+};
 
 const Providers: React.FC = ({ children }) => {
   return (
@@ -64,16 +60,14 @@ const Providers: React.FC = ({ children }) => {
           <TransactionProvider>
             <ModalsProvider>
               <FarmsProvider>
-                <ProposalsProvider>
-                  {children}
-                </ProposalsProvider>
+                <ProposalsProvider>{children}</ProposalsProvider>
               </FarmsProvider>
             </ModalsProvider>
           </TransactionProvider>
         </PylonProvider>
       </UseWalletProvider>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
