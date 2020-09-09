@@ -35,27 +35,27 @@ const App: React.FC = () => {
   }, [setMobileMenu]);
   return (
     <Providers>
-      <Router>
+      <Router basename="/pylon">
         <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
         <Switch>
-          <Route
+          {/* <Route
             exact
             path="/"
             render={() => {
               return <Redirect to="/pylon" />;
             }}
-          />
-          <Route path="/pylon" exact>
+          /> */}
+          <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/pylon/farms">
+          <Route path="/farms">
             <Farms />
           </Route>
           {/* <Route path="/vote">
             <Vote />
           </Route> */}
-          <Route path="/pylon/stats">
+          <Route path="/stats">
             <Statics />
           </Route>
         </Switch>
