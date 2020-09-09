@@ -54,7 +54,7 @@ const FarmCards: React.FC = () => {
 
   return (
     <div>
-      {currentPrice ? priceBlock() : ""}
+      {/* {currentPrice ? priceBlock() : ""} */}
       <StyledCards>
         {farms.length ? (
           farms.map((farm, i) => (
