@@ -106,10 +106,10 @@ const Stake: React.FC<StakeProps> = ({
                 <IconButton onClick={onPresentWithdraw}>
                   <RemoveIcon />
                 </IconButton>
-                <StyledActionSpacer />
+                {/* <StyledActionSpacer />
                 <IconButton onClick={onPresentDeposit}>
                   <AddIcon />
-                </IconButton>
+                </IconButton> */}
               </>
             )}
           </StyledCardActions>
