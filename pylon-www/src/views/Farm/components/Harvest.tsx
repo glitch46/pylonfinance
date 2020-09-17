@@ -29,7 +29,7 @@ const Harvest: React.FC<HarvestProps> = ({ poolContract }) => {
         <StyledCardContentInner>
           <StyledCardHeader>
             <CardIcon>
-              <img src="/pylon/static/media/farmer.dcde868a.png" height="32" />
+              <img src="/pylon/static/media/farmer.dcde868a.png" height="60" />
             </CardIcon>
             <Value value={getDisplayBalance(earnings)} />
             <Label text="PYLONs earned" />

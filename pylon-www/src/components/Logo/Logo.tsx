@@ -6,7 +6,7 @@ import farmer from "../../assets/img/farmer.png";
 const Logo: React.FC = () => {
   return (
     <StyledLogo>
-      <img src={farmer} height="32" style={{ marginTop: -4 }} />
+      <img src={farmer} height="60" style={{ marginTop: -4 }} />
       <StyledText>PYLON</StyledText>
     </StyledLogo>
   );

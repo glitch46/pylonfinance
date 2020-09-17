@@ -63,7 +63,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 
       <StyledBalanceWrapper>
         <CardIcon>
-          <img src="/pylon/static/media/farmer.dcde868a.png" height="32" />
+          <img src="/pylon/static/media/farmer.dcde868a.png" height="60" />
         </CardIcon>
         <StyledBalance>
           <StyledValue>{displayBalance}</StyledValue>
